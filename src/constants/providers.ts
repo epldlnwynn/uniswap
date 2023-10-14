@@ -3,11 +3,17 @@ import AppRpcProvider from 'rpc/AppRpcProvider'
 import AppStaticJsonRpcProvider from 'rpc/StaticJsonRpcProvider'
 import StaticJsonRpcProvider from 'rpc/StaticJsonRpcProvider'
 
+import { ChainScroll } from './chainLists'
 import { SupportedInterfaceChain } from './chains'
 import { RPC_URLS } from './networks'
 
-const providerFactory = (chainId: SupportedInterfaceChain, i = 0) =>
-  new AppStaticJsonRpcProvider(chainId, RPC_URLS[chainId][i])
+const providerFactory = (chainId: number, i = 0) => {
+  return new AppStaticJsonRpcProvider(chainId, RPC_URLS[chainId][i])
+}
+
+const RPC_CHAIN_LISTS: { [key: number]: StaticJsonRpcProvider } = {
+  [ChainScroll.CHAIN_ID]: providerFactory(ChainScroll.CHAIN_ID),
+}
 
 /**
  * These are the only JsonRpcProviders used directly by the interface.
@@ -30,6 +36,8 @@ export const RPC_PROVIDERS: { [key in SupportedInterfaceChain]: StaticJsonRpcPro
   [ChainId.BNB]: providerFactory(ChainId.BNB),
   [ChainId.AVALANCHE]: providerFactory(ChainId.AVALANCHE),
   [ChainId.BASE]: providerFactory(ChainId.BASE),
+
+  ...RPC_CHAIN_LISTS,
 }
 
 export const DEPRECATED_RPC_PROVIDERS: { [key in SupportedInterfaceChain]: AppStaticJsonRpcProvider } = {
@@ -47,4 +55,6 @@ export const DEPRECATED_RPC_PROVIDERS: { [key in SupportedInterfaceChain]: AppSt
   [ChainId.BNB]: providerFactory(ChainId.BNB),
   [ChainId.AVALANCHE]: providerFactory(ChainId.AVALANCHE),
   [ChainId.BASE]: providerFactory(ChainId.BASE),
+
+  ...RPC_CHAIN_LISTS,
 }

@@ -6,7 +6,6 @@ import { TraceEvent } from 'analytics'
 import { useToggleAccountDrawer } from 'components/AccountDrawer'
 import Row from 'components/Row'
 import { MouseoverTooltip } from 'components/Tooltip'
-import { BIPS_BASE } from 'constants/misc'
 import { useFilterPossiblyMaliciousPositions } from 'hooks/useFilterPossiblyMaliciousPositions'
 import { useSwitchChain } from 'hooks/useSwitchChain'
 import { EmptyWalletModule } from 'nft/components/profile/view/EmptyWalletContent'
@@ -163,7 +162,7 @@ function PositionListItem({ positionInfo }: { positionInfo: PositionInfo }) {
             </ThemedText.SubHeader>
           </Row>
         }
-        descriptor={<ThemedText.BodySmall>{`${pool.fee / BIPS_BASE}%`}</ThemedText.BodySmall>}
+        descriptor={<ThemedText.BodySmall>{`${pool.fee / 10000}%`}</ThemedText.BodySmall>}
         right={
           <>
             <MouseoverTooltip

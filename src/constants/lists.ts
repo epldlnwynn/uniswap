@@ -1,3 +1,5 @@
+import * as chainLists from './chainLists'
+
 export const UNI_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 export const UNI_EXTENDED_LIST = 'https://gateway.ipfs.io/ipns/extendedtokens.uniswap.org'
 const UNI_UNSUPPORTED_LIST = 'https://gateway.ipfs.io/ipns/unsupportedtokens.uniswap.org'
@@ -30,7 +32,7 @@ export const BASE_LIST =
 export const UNSUPPORTED_LIST_URLS: string[] = [BA_LIST, UNI_UNSUPPORTED_LIST]
 
 // default lists to be 'active' aka searched across
-export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST]
+export const DEFAULT_ACTIVE_LIST_URLS: string[] = [UNI_LIST, chainLists.ChainScroll.TOKEN_LIST]
 export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   UNI_EXTENDED_LIST,
   COMPOUND_LIST,
@@ -53,6 +55,7 @@ export const DEFAULT_INACTIVE_LIST_URLS: string[] = [
   PLASMA_BNB_LIST,
   AVALANCHE_LIST,
   BASE_LIST,
+  chainLists.ChainScroll.TOKEN_LIST,
   ...UNSUPPORTED_LIST_URLS,
 ]
 

@@ -1,6 +1,7 @@
 // a list of tokens by chain
 import { ChainId, Currency, Token } from '@uniswap/sdk-core'
 
+import { ChainScroll } from './chainLists'
 import {
   ARB,
   BTC_BSC,
@@ -61,8 +62,14 @@ const WRAPPED_NATIVE_CURRENCIES_ONLY: ChainTokenList = Object.fromEntries(
 
 /**
  * Shows up in the currency select for swap and add liquidity
+ * 热门代币推荐
  */
 export const COMMON_BASES: ChainCurrencyList = {
+  [ChainScroll.CHAIN_ID]: [
+    nativeOnChain(ChainScroll.CHAIN_ID),
+    WRAPPED_NATIVE_CURRENCY[ChainScroll.CHAIN_ID] as Token,
+    ChainScroll.USDC_SCROLL,
+  ],
   [ChainId.MAINNET]: [
     nativeOnChain(ChainId.MAINNET),
     DAI,
@@ -138,6 +145,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
     WETH_AVALANCHE,
   ],
 }
+
 export const PINNED_PAIRS: { readonly [chainId: number]: [Token, Token][] } = {
   [ChainId.MAINNET]: [
     [

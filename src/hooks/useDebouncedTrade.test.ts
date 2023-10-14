@@ -34,7 +34,7 @@ beforeEach(() => {
 
   mocked(useIsWindowVisible).mockReturnValue(true)
   mocked(useAutoRouterSupported).mockReturnValue(true)
-  mocked(useRouterPreference).mockReturnValue([RouterPreference.API, () => undefined])
+  mocked(useRouterPreference).mockReturnValue([RouterPreference.CLIENT, () => undefined])
 })
 
 describe('#useBestV3Trade ExactIn', () => {
@@ -49,7 +49,7 @@ describe('#useBestV3Trade ExactIn', () => {
       TradeType.EXACT_INPUT,
       USDCAmount,
       DAI,
-      RouterPreference.API,
+      RouterPreference.CLIENT,
       /* account = */ undefined,
       /* inputTax = */ undefined,
       /* outputTax = */ undefined
@@ -69,7 +69,7 @@ describe('#useDebouncedTrade ExactOut', () => {
       TradeType.EXACT_OUTPUT,
       DAIAmount,
       USDC_MAINNET,
-      RouterPreference.API,
+      RouterPreference.CLIENT,
       /* account = */ undefined,
       /* inputTax = */ undefined,
       /* outputTax = */ undefined

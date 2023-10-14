@@ -24,22 +24,22 @@ An open source interface for Uniswap -- a protocol for decentralized exchange of
 
 ## Accessing the Uniswap Interface
 
-To access the Uniswap Interface, use an IPFS gateway link from the
+> To access the Uniswap Interface, use an IPFS gateway link from the
 [latest release](https://github.com/Uniswap/uniswap-interface/releases/latest),
 or visit [app.uniswap.org](https://app.uniswap.org).
 
 ## Unsupported tokens
 
-Check out `useUnsupportedTokenList()` in [src/state/lists/hooks.ts](./src/state/lists/hooks.ts) for blocking tokens in your instance of the interface.
+>Check out `useUnsupportedTokenList()` in [src/state/lists/hooks.ts](./src/state/lists/hooks.ts) for blocking tokens in your instance of the interface.
 
-You can block an entire list of tokens by passing in a tokenlist like [here](./src/constants/lists.ts)
+>You can block an entire list of tokens by passing in a tokenlist like [here](./src/constants/lists.ts)
 
 ## Contributions
 
-For steps on local deployment, development, and code contribution, please see [CONTRIBUTING](./CONTRIBUTING.md).
+> For steps on local deployment, development, and code contribution, please see [CONTRIBUTING](./CONTRIBUTING.md).
 
 #### PR Title
-Your PR title must follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary), and should start with one of the following [types](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type):
+> Your PR title must follow [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/#summary), and should start with one of the following [types](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type):
 
 - build: Changes that affect the build system or external dependencies (example scopes: yarn, eslint, typescript)
 - ci: Changes to our CI configuration files and scripts (example scopes: vercel, github, cypress)
@@ -67,7 +67,7 @@ Other things to note:
 
 ## Accessing Uniswap V2
 
-The Uniswap Interface supports swapping, adding liquidity, removing liquidity and migrating liquidity for Uniswap protocol V2.
+> The Uniswap Interface supports swapping, adding liquidity, removing liquidity and migrating liquidity for Uniswap protocol V2.
 
 - Swap on Uniswap V2: <https://app.uniswap.org/swap?use=v2>
 - View V2 liquidity: <https://app.uniswap.org/pools/v2>

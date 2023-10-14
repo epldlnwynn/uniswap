@@ -5,6 +5,7 @@ import { CSSProperties, FunctionComponent } from 'react'
 import { useTheme } from 'styled-components'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 
+import * as chainLists from '../../constants/chainLists'
 import { ReactComponent as arbitrum } from './ChainSymbols/arbitrum.svg'
 import { ReactComponent as avax } from './ChainSymbols/avax.svg'
 import { ReactComponent as base } from './ChainSymbols/base.svg'
@@ -82,7 +83,7 @@ export function getChainUI(chainId: ChainId, darkMode: boolean): ChainUI | undef
         textColor: '#0052FF',
       }
     default:
-      return undefined
+      return chainLists.getChainUI(chainId, darkMode)
   }
 }
 
@@ -106,7 +107,6 @@ export function ChainLogo({
 }: ChainLogoProps) {
   const darkMode = useIsDarkMode()
   const { surface2 } = useTheme()
-
   if (!isSupportedChain(chainId)) return null
   const { label } = getChainInfo(chainId)
 

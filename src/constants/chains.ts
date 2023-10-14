@@ -1,5 +1,7 @@
 import { ChainId, SUPPORTED_CHAINS, SupportedChainsType } from '@uniswap/sdk-core'
 
+import * as chainLists from './chainLists'
+
 export const CHAIN_IDS_TO_NAMES = {
   [ChainId.MAINNET]: 'mainnet',
   [ChainId.GOERLI]: 'goerli',
@@ -15,6 +17,8 @@ export const CHAIN_IDS_TO_NAMES = {
   [ChainId.BNB]: 'bnb',
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.BASE]: 'base',
+
+  ...chainLists.CHAIN_IDS_TO_NAMES,
 } as const
 
 // Include ChainIds in this array if they are not supported by the UX yet, but are already in the SDK.
@@ -30,6 +34,7 @@ export function isSupportedChain(
   if (featureFlags && chainId && chainId in featureFlags) {
     return featureFlags[chainId]
   }
+
   return !!chainId && SUPPORTED_CHAINS.indexOf(chainId) !== -1 && NOT_YET_UX_SUPPORTED_CHAIN_IDS.indexOf(chainId) === -1
 }
 
@@ -53,6 +58,7 @@ export const SUPPORTED_GAS_ESTIMATE_CHAIN_IDS = [
   ChainId.BNB,
   ChainId.AVALANCHE,
   ChainId.BASE,
+  ...chainLists.SUPPORTED_GAS_ESTIMATE_CHAIN_IDS,
 ] as const
 
 /**
@@ -67,6 +73,7 @@ export const TESTNET_CHAIN_IDS = [
   ChainId.ARBITRUM_GOERLI,
   ChainId.OPTIMISM_GOERLI,
   ChainId.CELO_ALFAJORES,
+  ...chainLists.TESTNET_CHAIN_IDS,
 ] as const
 
 /**
@@ -82,6 +89,7 @@ export const L1_CHAIN_IDS = [
   ChainId.CELO_ALFAJORES,
   ChainId.BNB,
   ChainId.AVALANCHE,
+  ...chainLists.L1_CHAIN_IDS,
 ] as const
 
 export type SupportedL1ChainId = (typeof L1_CHAIN_IDS)[number]
@@ -96,6 +104,8 @@ export const L2_CHAIN_IDS = [
   ChainId.OPTIMISM,
   ChainId.OPTIMISM_GOERLI,
   ChainId.BASE,
+
+  ...chainLists.L2_CHAIN_IDS,
 ] as const
 
 export type SupportedL2ChainId = (typeof L2_CHAIN_IDS)[number]
@@ -130,7 +140,7 @@ export function getChainPriority(chainId: ChainId): number {
     case ChainId.CELO_ALFAJORES:
       return 7
     default:
-      return 8
+      return chainLists.getChainPriority(chainId)
   }
 }
 

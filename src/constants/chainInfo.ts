@@ -2,6 +2,7 @@ import { ChainId } from '@uniswap/sdk-core'
 import ms from 'ms'
 import { darkTheme } from 'theme/colors'
 
+import * as chainLists from './chainLists'
 import { SupportedL1ChainId, SupportedL2ChainId } from './chains'
 import { ARBITRUM_LIST, AVALANCHE_LIST, BASE_LIST, CELO_LIST, OPTIMISM_LIST, PLASMA_BNB_LIST } from './lists'
 
@@ -17,6 +18,8 @@ export const START_BLOCKS: { [key: number]: number } = {
   [ChainId.BNB]: 26324014,
   [ChainId.AVALANCHE]: 31422450,
   [ChainId.BASE]: 1371680,
+
+  ...chainLists.START_BLOCKS,
 }
 
 export enum NetworkType {
@@ -224,6 +227,8 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_84531,
   },
+
+  ...chainLists.CHAIN_INFO,
 } as const
 
 export function getChainInfo(
@@ -258,6 +263,7 @@ export function getChainInfo(
   if (featureFlags && chainId in featureFlags) {
     return featureFlags[chainId] ? CHAIN_INFO[chainId] : undefined
   }
+
   if (chainId) {
     return CHAIN_INFO[chainId] ?? undefined
   }

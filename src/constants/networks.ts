@@ -1,5 +1,7 @@
 import { ChainId } from '@uniswap/sdk-core'
 
+import * as chainLists from './chainLists'
+
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
 if (typeof INFURA_KEY === 'undefined') {
   throw new Error(`REACT_APP_INFURA_KEY must be a defined environment variable`)
@@ -119,13 +121,15 @@ export const FALLBACK_URLS = {
     'https://1rpc.io/base',
     'https://base.meowrpc.com',
   ],
+
+  ...chainLists.FALLBACK_URLS,
 }
 
 /**
  * Known JSON-RPC endpoints.
  * These are the URLs used by the interface when there is not another available source of chain data.
  */
-export const RPC_URLS = {
+export const RPC_URLS: { [key: number]: Array<string> } = {
   [ChainId.MAINNET]: [
     `https://mainnet.infura.io/v3/${INFURA_KEY}`,
     QUICKNODE_MAINNET_RPC_URL,
@@ -156,4 +160,6 @@ export const RPC_URLS = {
   [ChainId.BNB]: [QUICKNODE_BNB_RPC_URL, ...FALLBACK_URLS[ChainId.BNB]],
   [ChainId.AVALANCHE]: [`https://avalanche-mainnet.infura.io/v3/${INFURA_KEY}`, ...FALLBACK_URLS[ChainId.AVALANCHE]],
   [ChainId.BASE]: [`https://base-mainnet.infura.io/v3/${INFURA_KEY}`, ...FALLBACK_URLS[ChainId.BASE]],
+
+  ...chainLists.RPC_URLS,
 }

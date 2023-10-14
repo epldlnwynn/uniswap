@@ -82,7 +82,15 @@ module.exports = {
         maxRetries: 3,
       }),
     ],
-    configure: (webpackConfig) => {
+    configure: (webpackConfig, {evn, paths}) => {
+      
+      // paths.appBuild = 'dist'
+      // webpackConfig.output = {
+      //   ...webpackConfig.output,
+      //   path: path.resolve(__dirname, paths.appBuild),
+      //   publicPath: '/'
+      // }
+      
       // Configure webpack plugins:
       webpackConfig.plugins = webpackConfig.plugins
         .map((plugin) => {
