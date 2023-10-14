@@ -68,7 +68,7 @@ export const COMMON_BASES: ChainCurrencyList = {
   [ChainScroll.CHAIN_ID]: [
     nativeOnChain(ChainScroll.CHAIN_ID),
     WRAPPED_NATIVE_CURRENCY[ChainScroll.CHAIN_ID] as Token,
-    ChainScroll.USDC_SCROLL,
+    ChainScroll.USDC,
   ],
   [ChainId.MAINNET]: [
     nativeOnChain(ChainId.MAINNET),

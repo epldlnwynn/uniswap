@@ -477,6 +477,6 @@ export const TOKEN_SHORTHANDS: { [shorthand: string]: { [chainId in ChainId]?: s
     [ChainId.GOERLI]: USDC_GOERLI.address,
     [ChainId.SEPOLIA]: USDC_SEPOLIA.address,
     [ChainId.AVALANCHE]: USDC_AVALANCHE.address,
-    [chainLists.ChainScroll.CHAIN_ID as any]: chainLists.ChainScroll.USDC_SCROLL.address,
+    [chainLists.ChainScroll.CHAIN_ID as any]: chainLists.ChainScroll.USDC.address,
   },
 }

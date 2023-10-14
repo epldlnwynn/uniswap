@@ -6,11 +6,7 @@ import { darkTheme } from '../../theme/colors'
 
 export const NAME = 'SCROLL'
 
-export const name = 'scroll'
-
 export const CHAIN_ID = 534352
-
-export const BLOCKS = 30000
 
 export const ADDRESSES = {
   v3CoreFactoryAddress: '0x33128a8fC17869897dcE68Ed026d694621f6FDfD',
@@ -33,6 +29,8 @@ console.log('CHAIN_TO_ADDRESSES_MAP', CHAIN_TO_ADDRESSES_MAP)
 
 export const LOGO = logo
 
+export const RPC_URLS = ['https://rpc.scroll.io']
+
 export const TOKEN_LIST = 'https://raw.githubusercontent.com/scroll-tech/token-list/main/scroll.tokenlist.json'
 
 export const INFO: any = {
@@ -50,22 +48,16 @@ export const INFO: any = {
   backgroundColor: darkTheme.chain_534352_background,
 }
 
-export const USDC_SCROLL = new Token(CHAIN_ID, '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4', 6, 'USDC', 'USD//C')
+export const USDC = new Token(CHAIN_ID, '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4', 6, 'USDC', 'USD//C')
 
-export const USDT_SCROLL = new Token(CHAIN_ID, '0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df', 6, 'USDT', 'Tether USD')
+export const USDT = new Token(CHAIN_ID, '0xf55BEC9cafDbE8730f096Aa55dad6D22d44099Df', 6, 'USDT', 'Tether USD')
 
-export const WBTC_SCROLL = new Token(CHAIN_ID, '0x3C1BCa5a656e69edCD0D4E36BEbb3FcDAcA60Cf1', 8, 'WBTC', 'Wrapped BTC')
+export const WBTC = new Token(CHAIN_ID, '0x3C1BCa5a656e69edCD0D4E36BEbb3FcDAcA60Cf1', 8, 'WBTC', 'Wrapped BTC')
 
-export const WETH_SCROLL = new Token(
-  CHAIN_ID,
-  '0x5300000000000000000000000000000000000004',
-  18,
-  'WETH',
-  'Wrapped Ether'
-)
+export const WETH = new Token(CHAIN_ID, '0x5300000000000000000000000000000000000004', 18, 'WETH', 'Wrapped Ether')
 
 export const ROUTER_ADDRESS = {
   router: '0x82635AF6146972cD6601161c4472ffe97237D292',
-  weth: WETH_SCROLL.address,
-  creationBlock: BLOCKS,
+  weth: WETH.address,
+  creationBlock: 30000,
 }
