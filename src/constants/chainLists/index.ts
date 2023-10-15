@@ -78,11 +78,3 @@ export function getChainPriority(chainId: number): number {
 
   return 8
 }
-
-module.exports = {
-  ChainScroll,
-  getChainUI,
-  getChainPriority,
-  ROUTER_ADDRESS,
-  ROUTER_CREATION_BLOCK,
-}
